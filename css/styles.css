@@ -1,0 +1,21 @@
+@import url(nreset.css);
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+* ** {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+}
+.container__grid {
+  z-index: -1;
+  width: 50em;
+  height: 50em;
+  border: 1px solid black;
+  display: grid;
+  grid-template: repeat(16, 1fr) / repeat(16, 1fr);
+}
+.container__grid__square {
+  border: 1px solid black;
+}
