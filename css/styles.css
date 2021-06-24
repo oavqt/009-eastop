@@ -8,14 +8,50 @@
 body {
   font-family: 'Roboto', sans-serif;
 }
-.container__grid {
-  z-index: -1;
-  width: 50em;
-  height: 50em;
-  border: 1px solid black;
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+}
+.container__grids {
+  display: flex;
+  /* options */
+  flex-direction: column;
+  width: 30em;
+  height: 60em;
+  /* options */
+}
+.container__grids__one {
   display: grid;
-  grid-template: repeat(16, 1fr) / repeat(16, 1fr);
+  /* options */
+  grid-template: repeat(50, 1fr) / repeat(50, 1fr);
+  border-top-left-radius: 50%;
+  border-top-right-radius: 50%;
+  border-bottom-left-radius: 0%;
+  background-color: black;
+  /* options */
+  overflow: hidden;
+  width: 30em;
+  height: 30em;
+}
+.container__grids__two {
+  display: grid;
+  /* options */
+  grid-template: repeat(50, 1fr) / repeat(50, 1fr);
+  border-bottom-right-radius: 50%;
+  border-bottom-left-radius: 50%;
+  border-top-right-radius: 0%;
+  background-color: black;
+  /* options */
+  overflow: hidden;
+  width: 30em;
+  height: 30em;
 }
 .container__grid__square {
-  border: 1px solid black;
+  /* options */
+  background-color: white;
+  border-radius: 50%;
+  /* options */
 }
