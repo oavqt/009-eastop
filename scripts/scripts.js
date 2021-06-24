@@ -5,7 +5,7 @@ const container__grids__one = document.querySelector('.container__grids__one');
 const container__grids__two = document.querySelector('.container__grids__two');
 const slider = document.querySelector('.container__right__slider');
 
-let gridDimensions = 16;
+let gridDimensions = 50;
 
 function createGrid() {
   for (let i = 0; i < gridDimensions ** 2; i++) {
@@ -20,6 +20,8 @@ function createGrid() {
   }
 }
 
+createGrid();
+
 function deleteGrid() {
   while (container__grids__one.firstChild) {
     container__grids__one.removeChild(container__grids__one.firstChild);
@@ -29,20 +31,31 @@ function deleteGrid() {
   }
 }
 
-slider.addEventListener('input', () => {
+slider.addEventListener('input', (e) => {
+  e.preventDefault();
   deleteGrid();
   gridDimensions = document.querySelector('.container__right__slider').value;
   createGrid();
+  colorGrid();
 });
 
-//add event to shade/color grid when clicked/moused over
-const container__grids__square = document.querySelectorAll(
-  '.container__grid__square'
-);
+// function getSquareGrids(){
+//   container__grids__square = document.querySelectorAll(
+//     '.container__grid__square'
+//   );
 
-const grids__square = [...container__grids__square];
+//   grids__square = [...container__grids__square];
+// }
+
+//add event to shade/color grid when clicked/moused over
 
 function colorGrid() {
+  let = container__grids__square = document.querySelectorAll(
+    '.container__grid__square'
+  );
+
+  let grids__square = [...container__grids__square];
+
   let mouse = false;
   let color = 'red';
 
@@ -71,5 +84,5 @@ function colorGrid() {
   });
 }
 
-colorGrid();
+colorGrid()
 //
