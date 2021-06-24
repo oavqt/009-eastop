@@ -1,33 +1,34 @@
-//
 //ets
 //generate grid
-const container__grids__one = document.querySelector('.container__grids__one');
-const container__grids__two = document.querySelector('.container__grids__two');
+const container__grid__one = document.querySelector('.container__grid__one');
+const container__grid__two = document.querySelector('.container__grid__two');
 const slider = document.querySelector('.container__right__slider');
 
-let gridDimensions = 50;
+let gridDimensions = 16;
+
+let color = 'black';
 
 function createGrid() {
   for (let i = 0; i < gridDimensions ** 2; i++) {
     let div = document.createElement('div');
-    div.classList.add('container__grid__square');
-    container__grids__one.appendChild(div);
+    div.classList.add('container__grid__divs');
+    container__grid__one.appendChild(div);
   }
   for (let i = 0; i < gridDimensions ** 2; i++) {
     let div = document.createElement('div');
-    div.classList.add('container__grid__square');
-    container__grids__two.appendChild(div);
+    div.classList.add('container__grid__divs');
+    container__grid__two.appendChild(div);
   }
 }
 
 createGrid();
 
 function deleteGrid() {
-  while (container__grids__one.firstChild) {
-    container__grids__one.removeChild(container__grids__one.firstChild);
+  while (container__grid__one.firstChild) {
+    container__grid__one.removeChild(container__grid__one.firstChild);
   }
-  while (container__grids__two.firstChild) {
-    container__grids__two.removeChild(container__grids__two.firstChild);
+  while (container__grid__two.firstChild) {
+    container__grid__two.removeChild(container__grid__two.firstChild);
   }
 }
 
@@ -39,27 +40,23 @@ slider.addEventListener('input', (e) => {
   colorGrid();
 });
 
-// function getSquareGrids(){
-//   container__grids__square = document.querySelectorAll(
-//     '.container__grid__square'
-//   );
-
-//   grids__square = [...container__grids__square];
-// }
-
 //add event to shade/color grid when clicked/moused over
+const changeColor = document.querySelector('.container__right__color');
+
+changeColor.addEventListener('change', (e) => {
+  color = e.target.value;
+});
 
 function colorGrid() {
-  let = container__grids__square = document.querySelectorAll(
-    '.container__grid__square'
+  let = container__grid__divs = document.querySelectorAll(
+    '.container__grid__divs'
   );
 
-  let grids__square = [...container__grids__square];
+  let grid__divs = [...container__grid__divs];
 
   let mouse = false;
-  let color = 'red';
 
-  grids__square.forEach((square) => {
+  grid__divs.forEach((square) => {
     square.addEventListener('mousedown', (e) => {
       mouse = true;
       square.setAttribute('style', `background-color: ${color}`);
@@ -67,7 +64,7 @@ function colorGrid() {
     });
   });
 
-  grids__square.forEach((square) => {
+  grid__divs.forEach((square) => {
     square.addEventListener('mouseover', (e) => {
       if (mouse === true) {
         square.setAttribute('style', `background-color: ${color}`);
@@ -75,7 +72,7 @@ function colorGrid() {
     });
   });
 
-  grids__square.forEach((square) => {
+  grid__divs.forEach((square) => {
     square.addEventListener('mouseup', () => {
       if (mouse === true) {
         mouse = false;
@@ -84,5 +81,22 @@ function colorGrid() {
   });
 }
 
-colorGrid()
-//
+colorGrid();
+// update grid interface according to user input
+slider.addEventListener('input', (e) => {
+  e.preventDefault();
+  updateGrid();
+});
+
+function updateGrid() {
+  container__grid__one.setAttribute(
+    'style',
+    `grid-template: repeat(${gridDimensions}, 1fr) / repeat(${gridDimensions}, 1fr)`
+  );
+  container__grid__two.setAttribute(
+    'style',
+    `grid-template: repeat(${gridDimensions}, 1fr) / repeat(${gridDimensions}, 1fr)`
+  );
+}
+
+

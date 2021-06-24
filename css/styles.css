@@ -15,7 +15,7 @@ body {
   height: 100vh;
   width: 100vw;
 }
-.container__grids {
+.container__grid {
   display: flex;
   /* options */
   flex-direction: column;
@@ -23,10 +23,10 @@ body {
   height: 60em;
   /* options */
 }
-.container__grids__one {
+.container__grid__one {
   display: grid;
   /* options */
-  grid-template: repeat(50, 1fr) / repeat(50, 1fr);
+  grid-template: repeat(16, 1fr) / repeat(16, 1fr);
   border-top-left-radius: 50%;
   border-top-right-radius: 50%;
   border-bottom-left-radius: 0%;
@@ -36,10 +36,10 @@ body {
   width: 30em;
   height: 30em;
 }
-.container__grids__two {
+.container__grid__two {
   display: grid;
   /* options */
-  grid-template: repeat(50, 1fr) / repeat(50, 1fr);
+  grid-template: repeat(16, 1fr) / repeat(16, 1fr);
   border-bottom-right-radius: 50%;
   border-bottom-left-radius: 50%;
   border-top-right-radius: 0%;
@@ -49,7 +49,7 @@ body {
   width: 30em;
   height: 30em;
 }
-.container__grid__square {
+.container__grid__divs {
   /* options */
   background-color: white;
   border-radius: 50%;
