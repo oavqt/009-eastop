@@ -42,6 +42,9 @@ body {
   border-radius: 50%;
   /* options */
 }
+.container__grid__divs:hover {
+  background-color: #1a91da !important;
+}
 .container__grid__two {
   display: grid;
   /* options */

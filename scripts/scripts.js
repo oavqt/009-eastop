@@ -1,13 +1,12 @@
 //ets
-//generate grid
+
+//generate the grid
+
 const container__grid = document.querySelector('.container__grid');
 const container__grid__one = document.querySelector('.container__grid__one');
 const container__grid__two = document.querySelector('.container__grid__two');
-const slider = document.querySelector('.container__right__slider');
 
 let gridDimensions = 16;
-
-let color = 'black';
 
 function createGrid() {
   for (let i = 0; i < gridDimensions ** 2; i++) {
@@ -33,6 +32,8 @@ function deleteGrid() {
   }
 }
 
+const slider = document.querySelector('.container__right__slider');
+
 slider.addEventListener('input', (e) => {
   e.preventDefault();
   deleteGrid();
@@ -41,10 +42,15 @@ slider.addEventListener('input', (e) => {
   colorGrid();
 });
 
-//add event to shade/color grid when clicked/moused over
-const changeColor = document.querySelector('.container__right__color');
+//add mouse events to color the grid when the user interacts with the grid
 
-changeColor.addEventListener('change', (e) => {
+const colorPicker = document.querySelector('.container__right__color');
+const opacity = document.querySelector('.container__right__opacity');
+const random = document.querySelector('.container__right__random');
+
+let color = 'black';
+
+colorPicker.addEventListener('change', (e) => {
   color = e.target.value;
 });
 
@@ -71,6 +77,10 @@ function colorGrid() {
       } else {
         div.style.opacity = 1;
       }
+      if (random.checked) {
+        randomColor();
+        div.style.backgroundColor = `rgb(${red}, ${green}, ${blue})`;
+      }
     });
   });
 
@@ -81,10 +91,13 @@ function colorGrid() {
         if (opacity.checked) {
           if (div.style.opacity < 1) {
             div.style.opacity = (+div.style.opacity + 0.1).toFixed(1);
-            console.log(div.style.opacity);
           }
         } else {
           div.style.opacity = 1;
+        }
+        if (random.checked) {
+          randomColor();
+          div.style.backgroundColor = `rgb(${red}, ${green}, ${blue})`;
         }
       }
     });
@@ -99,12 +112,37 @@ function colorGrid() {
   });
 }
 
+function randomColor() {
+  red = Math.floor(Math.random() * 255);
+  green = Math.floor(Math.random() * 255);
+  blue = Math.floor(Math.random() * 255);
+}
+
 colorGrid();
+
 // update grid interface according to user input
+
+const slider__number = document.querySelector(
+  '.container__right__slider__number'
+);
+
+const reset = document.querySelector('.container__right__reset');
+
+const backgroundColorPicker = document.querySelector(
+  '.container__right__color__background'
+);
+
 slider.addEventListener('input', (e) => {
   e.preventDefault();
   updateGrid();
   updateSliderCount();
+});
+
+reset.addEventListener('click', resetGrid);
+
+backgroundColorPicker.addEventListener('change', (e) => {
+  container__grid__one.style.backgroundColor = `${e.target.value}`;
+  container__grid__two.style.backgroundColor = `${e.target.value}`;
 });
 
 function updateGrid() {
@@ -112,17 +150,9 @@ function updateGrid() {
   container__grid__two.style.gridTemplate = `repeat(${gridDimensions}, 1fr) / repeat(${gridDimensions}, 1fr)`;
 }
 
-const slider__number = document.querySelector(
-  '.container__right__slider__number'
-);
-
 function updateSliderCount() {
   slider__number.textContent = String(gridDimensions);
 }
-
-const reset = document.querySelector('.container__right__reset');
-
-reset.addEventListener('click', resetGrid);
 
 function resetGrid() {
   let = container__grid__divs = document.querySelectorAll(
@@ -135,14 +165,3 @@ function resetGrid() {
     div.setAttribute('style', 'background-color: white');
   });
 }
-
-const changeBackground = document.querySelector(
-  '.container__right__color__background'
-);
-
-changeBackground.addEventListener('change', (e) => {
-  container__grid__one.style.backgroundColor = `${e.target.value}`;
-  container__grid__two.style.backgroundColor = `${e.target.value}`;
-});
-
-const opacity = document.querySelector('.container__right__opacity');
