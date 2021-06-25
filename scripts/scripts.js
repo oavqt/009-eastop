@@ -47,6 +47,7 @@ slider.addEventListener('input', (e) => {
 const colorPicker = document.querySelector('.container__right__color');
 const opacity = document.querySelector('.container__right__opacity');
 const random = document.querySelector('.container__right__random');
+const eraser = document.querySelector('.container__right__eraser');
 
 let color = 'black';
 
@@ -68,36 +69,44 @@ function colorGrid() {
       mouse = true;
       e.preventDefault();
       div.style.backgroundColor = `${color}`;
+      //options
       if (opacity.checked) {
-        if (div.style.opacity >= 1) {
-          div.style.opacity = 0;
-        } else {
+        if (div.style.opacity < 1) {
           div.style.opacity = (+div.style.opacity + 0.1).toFixed(1);
         }
       } else {
-        div.style.opacity = 1;
+        div.style.opacity = '';
       }
       if (random.checked) {
         randomColor();
         div.style.backgroundColor = `rgb(${red}, ${green}, ${blue})`;
       }
+      if (eraser.checked) {
+        div.style.backgroundColor = '';
+        div.style.opacity = '';
+      }
     });
   });
 
   grid__divs.forEach((div) => {
-    div.addEventListener('mouseover', (e) => {
+    div.addEventListener('mouseover', () => {
       if (mouse === true) {
         div.style.backgroundColor = `${color}`;
+        //options
         if (opacity.checked) {
           if (div.style.opacity < 1) {
             div.style.opacity = (+div.style.opacity + 0.1).toFixed(1);
           }
         } else {
-          div.style.opacity = 1;
+          div.style.opacity = '';
         }
         if (random.checked) {
           randomColor();
           div.style.backgroundColor = `rgb(${red}, ${green}, ${blue})`;
+        }
+        if (eraser.checked) {
+          div.style.backgroundColor = '';
+          div.style.opacity = '';
         }
       }
     });
