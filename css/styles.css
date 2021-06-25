@@ -30,11 +30,17 @@ body {
   border-top-left-radius: 50%;
   border-top-right-radius: 50%;
   border-bottom-left-radius: 0%;
-  background-color: black;
+  background-color: #000000;
   /* options */
   overflow: hidden;
   width: 30em;
   height: 30em;
+}
+.container__grid__divs {
+  /* options */
+  background-color: white;
+  border-radius: 50%;
+  /* options */
 }
 .container__grid__two {
   display: grid;
@@ -49,9 +55,11 @@ body {
   width: 30em;
   height: 30em;
 }
-.container__grid__divs {
-  /* options */
-  background-color: white;
-  border-radius: 50%;
-  /* options */
+.container__right {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 10em;
+  width: 5em;
+  margin: 0 2em;
 }
