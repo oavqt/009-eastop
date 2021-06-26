@@ -89,7 +89,7 @@ body {
   flex-direction: column;
   justify-content: space-between;
   width: 12em;
-  height: 15em;
+  height: 18em;
 }
 .container__right__number {
   text-align: center;
@@ -212,6 +212,23 @@ input:checked + .container__right__random--slider:before,
 input:checked + .container__right__eraser--slider:before {
   transform: translateX(15px);
   -webkit-transform: translateX(15px);
+}
+.container__right__tags {
+  margin-top: 2em;
+  text-align: center;
+  font-size: 1.1rem;
+}
+.container__right__refs {
+  text-decoration: none;
+  color: white;
+}
+.container__right__refs__github {
+  width: 3em;
+  height: auto;
+}
+.container__right__refs__gitlogo {
+  width: 1.5em;
+  height: auto;
 }
 @media (max-width: 768px) {
   .container {
