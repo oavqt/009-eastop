@@ -9,45 +9,65 @@
   </head>
   <body>
     <div class="container">
-      <div class="container__left"></div>
+      <div class="container__left">
+        <h1>etch-les-kechape</h1>
+      </div>
       <div class="container__grid">
         <div class="container__grid__one"></div>
         <div class="container__grid__two"></div>
       </div>
       <div class="container__right">
-        <label for="slider">
+        <span class="container__right__number">16</span>
+        <label for="container__right__slider">
           <input
             type="range"
-            id="slider"
+            id="container__right__slider"
             class="container__right__slider"
             value="16"
             min="1"
             max="50"
           />
+          Grid Size
         </label>
-        <span class="container__right__slider__number">16</span>
-        <label for="color">
+        <label for="container__right__color">
           <input type="color" class="container__right__color" value="" />
+          Color
         </label>
-        <label for="color__background">
+        <label for="container__right__color__background">
           <input
             type="color"
             class="container__right__color__background"
             value=""
           />
+          Background Color
         </label>
-        <button class="container__right__reset">clear</button>
+        <button class="container__right__clear">Clear</button>
         <label for="container__right__opacity">
-          <input type="checkbox" class="container__right__opacity" />
+          <input
+            type="checkbox"
+            class="container__right__opacity"
+            id="container__right__opacity"
+          />
+          <span class="container__right__opacity--slider"></span>
         </label>
         <label for="container__right__random">
-          <input type="checkbox" class="container__right__random" />
+          <input
+            type="checkbox"
+            class="container__right__random"
+            id="container__right__random"
+          />
+          <span class="container__right__random--slider"></span>
         </label>
         <label for="container__right__eraser">
-          <input type="checkbox" class="container__right__eraser" />
+          <input
+            type="checkbox"
+            class="container__right__eraser"
+            id="container__right__eraser"
+          />
+          <span class="container__right__eraser--slider"></span>
         </label>
       </div>
     </div>
-    <script src="scripts/scripts.js"></script>
   </body>
+  <script src="scripts/scripts.js"></script>
 </html>

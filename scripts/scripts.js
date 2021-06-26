@@ -37,7 +37,7 @@ const slider = document.querySelector('.container__right__slider');
 slider.addEventListener('input', (e) => {
   e.preventDefault();
   deleteGrid();
-  gridDimensions = document.querySelector('.container__right__slider').value;
+  gridDimensions = slider.value;
   createGrid();
   colorGrid();
 });
@@ -131,11 +131,9 @@ colorGrid();
 
 // update grid interface according to user input
 
-const slider__number = document.querySelector(
-  '.container__right__slider__number'
-);
+const slider__number = document.querySelector('.container__right__number');
 
-const reset = document.querySelector('.container__right__reset');
+const clear = document.querySelector('.container__right__clear');
 
 const backgroundColorPicker = document.querySelector(
   '.container__right__color__background'
@@ -147,7 +145,7 @@ slider.addEventListener('input', (e) => {
   updateSliderCount();
 });
 
-reset.addEventListener('click', resetGrid);
+clear.addEventListener('click', clearGrid);
 
 backgroundColorPicker.addEventListener('change', (e) => {
   container__grid__one.style.backgroundColor = `${e.target.value}`;
@@ -163,7 +161,7 @@ function updateSliderCount() {
   slider__number.textContent = String(gridDimensions);
 }
 
-function resetGrid() {
+function clearGrid() {
   let = container__grid__divs = document.querySelectorAll(
     '.container__grid__divs'
   );
