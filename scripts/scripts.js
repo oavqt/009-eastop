@@ -1,5 +1,4 @@
 //ets
-
 //generate the grid
 
 const container__grid = document.querySelector('.container__grid');
@@ -172,3 +171,5 @@ function clearGrid() {
     div.setAttribute('style', 'background-color: white');
   });
 }
+
+//
