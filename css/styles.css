@@ -24,6 +24,11 @@ body {
 }
 .container__left h1 {
   font-size: 3rem;
+  margin: 0;
+}
+.container__left p {
+  text-align: right;
+  margin: 0 1em;
 }
 .container__grid {
   display: flex;
@@ -99,10 +104,14 @@ label[for='container__right__slider'] {
   border: none;
   color: white;
   text-decoration: none;
+  transition: 1s;
+  -webkit-transition: 1s;
 }
 .container__right__clear:hover {
   cursor: pointer;
   opacity: 0.9;
+  transform: scale(1.01);
+  -webkit-transform: scale(1.01);
 }
 label[for='container__right__opacity'],
 [for='container__right__random'],
@@ -155,5 +164,4 @@ input:checked + .container__right__random--slider:before,
 input:checked + .container__right__eraser--slider:before {
   transform: translateX(15px);
   -webkit-transform: translateX(15px);
-  -ms-transform: translateX(15px);
 }
